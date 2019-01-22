@@ -1,5 +1,5 @@
 INC = -I../include
-OBJ = main.c
+OBJ = main.c init.c
 SRCS = $(OBJ:%.o=%.c)
 
 all: slash
