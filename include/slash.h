@@ -18,8 +18,9 @@
 #define MAP_HEIGHT 30
 
 enum TileType {
-	Floor,
-	Wall
+	FLOOR_TILE,
+	WALL_TILE,
+	NUM_TILE_TYPES
 };
 
 #endif

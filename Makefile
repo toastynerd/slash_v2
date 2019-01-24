@@ -4,7 +4,7 @@ CFLAGS = -Wall
 INC = -Iinclude
 PREFIX ?= /usr/bin
 
-export LIB FLAGS INC
+export LIB CFLAGS INC
 
 .PHONY: slash clean install
 
