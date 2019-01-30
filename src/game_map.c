@@ -6,6 +6,7 @@
 
 #include "slash.h"
 #include "game_map.h"
+#include "map_generation.h"
 #include "texture.h"
 #include <stdio.h>
 #include <stdlib.h>
@@ -17,8 +18,12 @@ GameMap *create_map()
 
 	for (int x = 0; x < MAP_WIDTH ; x++) {
 		for (int y = 0; y < MAP_HEIGHT; y++) {
-			map->map_tiles[x][y] = (enum TileType)(rand() % 2);
+			map->map_tiles[x][y] = FLOOR_TILE;
 		}
+	}
+	initialize_map(map);
+	for (int x = 0; x < MAP_ITERATIONS; x++) {
+		do_simulation_step(map);
 	}
 	return map;
 }

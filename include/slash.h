@@ -18,9 +18,15 @@
 #define MAP_HEIGHT 30
 
 enum TileType {
-	FLOOR_TILE,
 	WALL_TILE,
+	FLOOR_TILE,
 	NUM_TILE_TYPES
 };
+
+//map generation variables
+#define CHANCE_TO_START_ALIVE 50
+#define DEATH_LIMIT 6
+#define BIRTH_LIMIT 3
+#define MAP_ITERATIONS 35
 
 #endif
