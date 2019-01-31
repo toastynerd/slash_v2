@@ -36,7 +36,6 @@ GlobalRenderObjects* init_render(int argc, char** argv)
 	}
 
 	SDL_SetRenderDrawColor(gro->renderer, 200, 200, 200, 255);
-	//SDL_RenderClear(gro->renderer);
 
 	char *c;
 	if (argc == 2) {
@@ -47,6 +46,7 @@ GlobalRenderObjects* init_render(int argc, char** argv)
 
 	srand(gro->seed);
 	printf("starting with seed: %ld\n", gro->seed);
+	gro->running = 1;
 
 	return gro;
 }

@@ -49,7 +49,6 @@ void cleanup_map(GameMap *map)
 	for (int i = 0; i < NUM_TILE_TYPES; i++) {
 		SDL_DestroyTexture(map->tile_textures[i]);
 	}
-	free(map->tile_textures);
 	free(map);
 }
 

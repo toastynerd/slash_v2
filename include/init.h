@@ -14,6 +14,7 @@ typedef struct {
 	SDL_Window *window;
 	SDL_Renderer *renderer;
 	time_t seed;
+	char running;
 } GlobalRenderObjects;
 
 GlobalRenderObjects* init_render(int argc, char **argv);
