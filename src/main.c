@@ -14,7 +14,7 @@
 
 int main(int argc, char **argv)
 {
-	GlobalRenderObjects *gro = init_render();
+	GlobalRenderObjects *gro = init_render(argc, argv);
 
 	GameMap *map = create_map();
 

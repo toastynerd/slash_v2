@@ -1,6 +1,7 @@
 /*
  * Slash! a rogue like
  * tylermorgan86@gmail.com
+ * init.c
  */
 
 #include "slash.h"
@@ -8,8 +9,11 @@
 #include "game_map.h"
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 
-GlobalRenderObjects* init_render()
+GlobalRenderObjects* init_render(int argc, char** argv)
 {
 	if (SDL_Init(SDL_INIT_EVERYTHING < 0)) {
 		printf("could not init SDL: %s \n", SDL_GetError());
@@ -33,6 +37,16 @@ GlobalRenderObjects* init_render()
 
 	SDL_SetRenderDrawColor(gro->renderer, 200, 200, 200, 255);
 	//SDL_RenderClear(gro->renderer);
+
+	char *c;
+	if (argc == 2) {
+		gro->seed = (time_t)strtol(argv[1], &c, 10);
+	} else {
+		gro->seed = time(0);
+	}
+
+	srand(gro->seed);
+	printf("starting with seed: %ld\n", gro->seed);
 
 	return gro;
 }

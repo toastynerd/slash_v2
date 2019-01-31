@@ -18,13 +18,15 @@ GameMap *create_map()
 
 	for (int x = 0; x < MAP_WIDTH ; x++) {
 		for (int y = 0; y < MAP_HEIGHT; y++) {
-			map->map_tiles[x][y] = FLOOR_TILE;
+			map->map_tiles[x][y] = WALL_TILE;
 		}
 	}
 	initialize_map(map);
 	for (int x = 0; x < MAP_ITERATIONS; x++) {
 		do_simulation_step(map);
 	}
+	printf("size of largest cavern: %d\n", find_largest_cavern(map));
+	printf("total floor tiles: %d\n", find_total_floor_tiles(map));
 	return map;
 }
 
@@ -49,4 +51,30 @@ void cleanup_map(GameMap *map)
 	}
 	free(map->tile_textures);
 	free(map);
+}
+
+int find_total_floor_tiles(GameMap *map)
+{
+	int count = 0;
+	for (int x = 0; x < MAP_WIDTH; x++) {
+		for (int y = 0; y < MAP_HEIGHT; y++) {
+			if (map->map_tiles[x][y] == FLOOR_TILE)
+				count++;
+		}
+	}
+
+	return count;
+}
+
+int find_largest_cavern(GameMap *map)
+{
+	int largest = 0;
+	for (int x = 0; x < MAP_WIDTH; x++) {
+		for (int y = 0; y < MAP_HEIGHT; y++) {
+			int temp = find_connected_area(map, x, y);
+			if (temp > largest)
+				largest = temp;
+		}
+	}
+	return largest;
 }

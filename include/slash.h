@@ -24,9 +24,9 @@ enum TileType {
 };
 
 //map generation variables
-#define CHANCE_TO_START_ALIVE 50
-#define DEATH_LIMIT 6
-#define BIRTH_LIMIT 3
-#define MAP_ITERATIONS 35
+#define CHANCE_TO_START_ALIVE 60
+#define DEATH_LIMIT 3
+#define BIRTH_LIMIT 6
+#define MAP_ITERATIONS 7
 
 #endif

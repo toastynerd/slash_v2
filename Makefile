@@ -1,6 +1,6 @@
 SRC_DIR = src
 LIB = -lSDL2 -lSDL2_image
-CFLAGS = -Wall
+CFLAGS = -Wall -g -g3 -gdwarf-2
 INC = -Iinclude
 PREFIX ?= /usr/bin
 
